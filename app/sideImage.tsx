@@ -1,9 +1,10 @@
 import styles from './page.module.scss'
 import { createApi } from 'unsplash-js'
 
-export const revalidate = 30;
+
 
 export async function getUnsplashImage(): Promise<any> {
+
     const unsplash = createApi({
         accessKey: process.env.UNSPLASH_API_KEY as string,
         //...other fetch options
