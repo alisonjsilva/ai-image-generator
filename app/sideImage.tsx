@@ -7,7 +7,6 @@ export async function getUnsplashImage(): Promise<any> {
 
     const unsplash = createApi({
         accessKey: process.env.UNSPLASH_API_KEY as string,
-        //...other fetch options
     });
 
     return unsplash.photos.getRandom(
@@ -19,11 +18,8 @@ export async function getUnsplashImage(): Promise<any> {
         }
     ).then(result => {
         if (result.errors) {
-            // handle error here
             console.log('error occurred: ', result.errors[0]);
         } else {
-            // handle success here
-            // console.log(result.response);
             return result.response;
         }
     });
@@ -40,6 +36,6 @@ export default async function Sidebar(): Promise<JSX.Element> {
     } as React.CSSProperties;
 
     return (
-        <div style={style} className={`w-1/3 ${styles.focusImageBackground}`}></div>
+        <div style={style} className={`hidden lg:block w-1/3 ${styles.focusImageBackground}`}></div>
     )
 }
